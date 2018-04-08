@@ -1,0 +1,315 @@
+<script>
+    
+     var rndTekBasamaklı;
+     var rndCiftBasamaklı;
+     var uretilecekSayi;
+     var newUretilecek;
+     var rndSayilar = new Array();
+     var x,y,z;
+     var bolum;
+     var kalan;
+     var tempkalan;
+     var tempuretilecek;
+     
+
+     onunKatiUret(rndCiftBasamaklı);    
+     
+
+
+
+     function onunKatiUret()
+      {   
+         rndCiftBasamaklı = Math.floor(Math.random() * 99) + 1;
+        if(0 == rndCiftBasamaklı % 10)
+          {
+              document.writeln("Uretilen Cift Basamakli Sayi:<br>        " + rndCiftBasamaklı+"</br>" );
+          }
+          else
+          {
+              onunKatiUret(rndCiftBasamaklı);  
+          }
+       }
+    
+
+      for(var i =0; i<5; i++) 
+      {
+       rndTekBasamaklı = Math.floor(Math.random() * 9) + 1 ;
+       rndSayilar [i] =rndTekBasamaklı;
+       document.writeln("Uretilen Tek Basamakli Sayi :<br>          " + rndSayilar[i] +"</br>" );
+      }
+
+
+     newUretilecek = randomInt(100,999);
+     document.write("Üretilecek sayi : "+ newUretilecek);
+     Parcala(newUretilecek);
+         
+      function randomInt(min, max) 
+      {
+         uretilecekSayi = Math.floor(Math.random() * (max - min + 1)) + min;
+        // document.writeln("Bulunacak Sayi:<br>         "+ uretilecekSayi+"</br" );
+         return uretilecekSayi;
+
+      }
+
+
+      function Parcala(sayi)
+      {
+          x = sayi % 10;
+          y = sayi % 100;
+          z = uretilecekSayi;
+
+        
+          y = y - x;
+          z = z - (y+x);
+
+          document.writeln("<br>    Yüzler : "+z+"    Onlar : "+y+"    Birler : "+ x + "</br>");
+
+      }
+   
+          kalan = uretilecekSayi % rndCiftBasamaklı;
+          bolum = (uretilecekSayi-kalan) / rndCiftBasamaklı;
+          document.writeln(" <br>  Bolumunuz: "+ bolum+ "</br>"); 
+          document.writeln("<br>  Kalaniniz: "+ kalan+ "</br>");
+   
+
+
+
+
+        
+
+
+           function bolumOlustur(rndsayi,bolumSayi)
+           { 
+          for(var t=0; t<5; t++)
+          {
+              for(var v=0; v<5; v++)
+                {  
+                    if(rndSayilar[t]==bolumSayi)
+                    {   
+                      
+                        return rndSayilar[t];
+
+                    }
+                    if( rndSayilar[v]==bolumSayi)
+                    {
+                        
+                        return rndSayilar[v];
+
+
+                    }
+                    if(rndSayilar[t]+rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[t]+"+"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[t]-rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[t]+"-"+rndCiftBasamaklı;
+                    }
+
+                     if(rndSayilar[t]*rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[t]+"*"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[t]/rndCiftBasamaklı==bolumSayi)
+                    {
+                        
+                        return rndSayilar[t]+"/"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[v]+rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[v]+"+"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[v]-rndCiftBasamaklı==bolumSayi)
+                    {
+                     
+                        return rndSayilar[v]+"-"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[v]*rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[v]+"*"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[v]/rndCiftBasamaklı==bolumSayi)
+                    {
+                       
+                        return rndSayilar[v]+"/"+rndCiftBasamaklı;
+                    }
+
+                   if((rndSayilar[t]+rndSayilar[v]) == bolumSayi)
+                       {
+                           return rndSayilar[t]+" + "+rndSayilar[v];
+                       }
+
+                    if((rndSayilar[t]-rndSayilar[v]) == bolumSayi)
+                       {
+                           return rndSayilar[t]+" - "+rndSayilar[v];
+                       }
+                    if((rndSayilar[t]*rndSayilar[v]) == bolumSayi)
+                       {
+                           return rndSayilar[t]+" * "+rndSayilar[v];
+                       }
+                    if((rndSayilar[t]/rndSayilar[v]) == bolumSayi)
+                       {
+                           return rndSayilar[t]+" / "+rndSayilar[v];
+                       }
+                       
+                        
+                           
+
+                }
+
+          }
+          return bolumSayi;
+          }
+            
+
+          function kalanOlustur(kalan)
+           { 
+               
+          for(var j=0; j<5; j++)
+          {    
+              for(var k=0; k<5; k++)
+                {
+                  
+                    if(rndSayilar[j]==kalan)
+                    {   
+                        
+                        return rndSayilar[j];
+
+                    }
+                    if( rndSayilar[k]==kalan)
+                    {
+                        
+                        return rndSayilar[k];
+
+
+                    }
+                    if(rndSayilar[j]+rndCiftBasamaklı==kalan)
+                    {
+                       
+                        return rndSayilar[j]+"+"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[j]-rndCiftBasamaklı==kalan)
+                    {
+                       
+                        return rndSayilar[j]+"-"+rndCiftBasamaklı;
+                    }
+
+                     if(rndSayilar[j]*rndCiftBasamaklı==kalan)
+                    {
+                        
+                        return rndSayilar[j]+"*"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[j]/rndCiftBasamaklı==kalan)
+                    {
+                        
+                        return rndSayilar[j]+"/"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[k]+rndCiftBasamaklı==kalan)
+                    {
+                        
+                        return rndSayilar[k]+"+"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[k]-rndCiftBasamaklı==kalan)
+                    {
+                       
+                        return rndSayilar[k]+"-"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[k]*rndCiftBasamaklı==kalan)
+                    {
+                        
+                        return rndSayilar[k]+"*"+rndCiftBasamaklı;
+                    }
+                    if(rndSayilar[k]/rndCiftBasamaklı==kalan)
+                    {
+                       
+                        return rndSayilar[k]+"/"+rndCiftBasamaklı;
+                    }
+
+                    
+                   if(rndSayilar[j]+rndSayilar[k] == kalan)
+                       {
+                         return rndSayilar[j]+" + "+rndSayilar[k];
+                       }
+
+                    if(rndSayilar[j]-rndSayilar[k] == kalan)
+                       {
+                        return  rndSayilar[j]+" - "+rndSayilar[k] ;
+                       }
+                     if(rndSayilar[k]-rndSayilar[j] == kalan)
+                       {
+                         return  rndSayilar[k]+" - "+rndSayilar[j] ;
+                       }
+                    if(rndSayilar[j]*rndSayilar[k] == kalan)
+                       {
+                        return  rndSayilar[j]+" * "+rndSayilar[k]; 
+                       }
+                    if(rndSayilar[j]/rndSayilar[k] == kalan)
+                       {
+                        return  rndSayilar[j]+" / "+rndSayilar[k]; 
+                       }  
+                }
+
+          }
+
+          return "";
+
+          }
+
+
+             for(var d=1; d<=10;d++)
+             {
+                if( kalanOlustur(kalan)=="")
+                {
+                   
+                   tempkalan=kalanOlustur(kalan++);
+                   
+                
+                }
+                else
+                {
+                    tempkalan=kalanOlustur(kalan);
+                }
+             }
+             if(tempkalan == "")
+             {
+                for(var d=1; d<=10;d++)
+             {
+                if( kalanOlustur(kalan)=="")
+                {
+                   
+                   tempkalan=kalanOlustur(kalan--);
+                
+                }
+                else
+                {
+                    tempkalan=kalanOlustur(kalan);
+                }
+             }
+             }
+             
+              
+        
+         
+          document.writeln("("+bolumOlustur(rndSayilar,bolum)+")"+"*"+rndCiftBasamaklı+"+("+tempkalan+")");
+
+          
+
+
+
+
+
+
+
+
+
+          
+        
+
+   
+
+</script>
